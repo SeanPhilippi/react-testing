@@ -1,11 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
+import CommentBox from './CommentBox';
+import CommentList from './CommentList';
 import './App.css';
 
 const App = () => {
   return (
     <div className="App">
-      Hi there
+        <CommentBox />
+        <CommentList />
     </div>
   );
 }
