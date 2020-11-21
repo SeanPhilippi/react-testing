@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+// convert to Hooks later
 class CommentList extends Component {
     renderComments() {
         return this.props.comments.map(comment => {
