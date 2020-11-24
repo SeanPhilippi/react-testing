@@ -1,0 +1,7 @@
+ - hook up redux tools for this project
+ - organize reducers, actions, etc into a redux folder
+ - set up redux state
+ - work on mapping bulleted comments
+ - convert components into React Hooks
+ - pull App.js outside of components folder
+ - set up scss

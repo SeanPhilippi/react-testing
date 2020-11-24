@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
 // convert to Hooks later
-class CommentList extends Component {
+class CommentList extends PureComponent {
     renderComments() {
         return this.props.comments.map(comment => {
             return <li key={comment}>{comment}</li>;
