@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SAVE_COMMENT, FETCH_COMMENTS } from 'actions/types';
+import { SAVE_COMMENT, FETCH_COMMENTS } from 'redux/actions/types';
 
 export const saveComment = comment => {
     return {

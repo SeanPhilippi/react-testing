@@ -1,4 +1,3 @@
- - hook up redux tools for this project
  - organize reducers, actions, etc into a redux folder
  - set up redux state
  - work on mapping bulleted comments

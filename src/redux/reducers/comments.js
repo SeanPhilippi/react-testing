@@ -1,4 +1,4 @@
-import { SAVE_COMMENT, FETCH_COMMENTS } from 'actions/types';
+import { SAVE_COMMENT, FETCH_COMMENTS } from 'redux/actions/types';
 
 export default (state = [], { type, payload }) => {
     switch (type) {

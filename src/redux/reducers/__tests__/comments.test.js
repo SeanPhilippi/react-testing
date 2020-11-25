@@ -1,5 +1,5 @@
-import commentsReducer from 'reducers/comments';
-import { SAVE_COMMENT } from 'actions/types';
+import commentsReducer from 'redux/reducers/comments';
+import { SAVE_COMMENT } from 'redux/actions/types';
 
 it('handles actions of type SAVE_COMMENT', () => {
     const action = {
