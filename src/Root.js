@@ -1,15 +1,15 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import reduxPromise from 'redux-promise';
 import reducers from 'redux/reducers';
 
 export default ({ children, initialState = {} }) => {
-    const store = createStore(reducers, compose(applyMiddleware(reduxPromise), (window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() || compose)));
-
-    return (
-        <Provider store={store}>
-            {children}
-        </Provider>
-    )
-}
+  const store = createStore(
+    reducers,
+    initialState,
+    composeWithDevTools(applyMiddleware(reduxPromise))
+  );
+  return <Provider store={store}>{children}</Provider>;
+};
