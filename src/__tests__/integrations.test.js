@@ -24,11 +24,13 @@ it('can fetch a list of comments and display them', done => {
   )
 
   wrapped.find('.fetch-comments').simulate('click');
-  setTimeout(() => {
+
+  // acts like setTimeout(), moxios can detect when a fetch request is done, then execute what's inside
+  moxios.wait(() => {
     // wrapped component has to be told explictly to update/rerender
     wrapped.update();
     expect(wrapped.find('li').length).toEqual(2)
     done();
     wrapped.unmount();
-  }, 100);
+  });
 });
