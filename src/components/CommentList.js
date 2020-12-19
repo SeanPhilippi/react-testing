@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 class CommentList extends PureComponent {
   renderComments() {
     return this.props.comments.map(comment => {
+      console.log('comment', comment)
       return <li key={comment}>{comment}</li>;
     });
   }

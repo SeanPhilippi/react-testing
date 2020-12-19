@@ -5,10 +5,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import reduxPromise from 'redux-promise';
 import reducers from 'redux/reducers';
 
-const initialState = {
-}
-
-export default ({ children, initialState }) => {
+export default ({ children, initialState = {} }) => {
   const store = createStore(
     reducers,
     initialState,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { BrowserRouter, Route } from 'react-router-dom';
 import Root from 'Root';
 import App from 'App';
 import moxios from 'moxios';
@@ -17,20 +17,23 @@ afterEach(() => {
 });
 
 it('can fetch a list of comments and display them', done => {
-  const wrapped = mount(
+  const component = mount(
     <Root>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </Root>
   )
 
-  wrapped.find('.fetch-comments').simulate('click');
+  component.find('.fetch-comments').simulate('click');
 
   // acts like setTimeout(), moxios can detect when a fetch request is done, then execute what's inside
   moxios.wait(() => {
-    // wrapped component has to be told explictly to update/rerender
-    wrapped.update();
-    expect(wrapped.find('li').length).toEqual(2)
+    // component component has to be told explictly to update/rerender
+    component.update();
+    console.log('component', component.find('li').debug())
+    // expect(component.find('li').length).toEqual(2)
     done();
-    wrapped.unmount();
+    component.unmount();
   });
 });

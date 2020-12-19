@@ -1,12 +1,11 @@
 import React from 'react';
-import { mount } from 'enzyme';
 import CommentBox from 'components/CommentBox';
 import Root from 'Root';
 
-let wrapped;
+let component;
 
 beforeEach(() => {
-  wrapped = mount(
+  component = mount(
     <Root>
       <CommentBox />
     </Root>
@@ -14,33 +13,33 @@ beforeEach(() => {
 });
 
 afterEach(() => {
-  wrapped.unmount();
+  component.unmount();
 });
 
 it('has a text area and two buttons', () => {
-  expect(wrapped.find('textarea').length).toEqual(1);
-  expect(wrapped.find('button').length).toEqual(2);
+  expect(component.find('textarea').length).toEqual(1);
+  expect(component.find('button').length).toEqual(2);
 });
 
 describe('the text area', () => {
   // grouping tests based on similar setup to avoid repetition
   beforeEach(() => {
-    wrapped.find('textarea').simulate('change', {
+    component.find('textarea').simulate('change', {
       // pass in string of native html event name
       target: { value: 'new comment' }, // mock event object
     });
     // force React to re-render component, since it is async
-    wrapped.update();
+    component.update();
   });
 
   it('has a text area that users can type in', () => {
     // making sure the value prop of textarea is now set to the new comment
-    expect(wrapped.find('textarea').prop('value')).toEqual('new comment');
+    expect(component.find('textarea').prop('value')).toEqual('new comment');
   });
 
   it('clears the textarea upon submit', () => {
-    wrapped.find('form').simulate('submit');
-    wrapped.update();
-    expect(wrapped.find('textarea').prop('value')).toEqual('');
+    component.find('form').simulate('submit');
+    component.update();
+    expect(component.find('textarea').prop('value')).toEqual('');
   });
 });

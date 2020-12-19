@@ -1,19 +1,22 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import Root from 'Root';
 import App from '../App';
 import CommentBox from 'components/CommentBox';
 import CommentList from 'components/CommentList';
 
-let wrapped;
+let component;
 beforeEach(() => {
-  // component
-  wrapped = shallow(<App />);
+  component = shallow(
+    <Root>
+      <App />
+    </Root>
+    );
 });
 
 it('shows a comment box', () => {
-  expect(wrapped.find(CommentBox).length).toEqual(1);
+  expect(component.find(CommentBox).length).toEqual(1);
 });
 
 it('shows a comment list', () => {
-  expect(wrapped.find(CommentList).length).toEqual(1);
+  expect(component.find(CommentList).length).toEqual(1);
 });
