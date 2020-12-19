@@ -5,8 +5,8 @@ import * as actions from 'redux/actions';
 class CommentBox extends PureComponent {
   state = { comment: '' };
 
-  handleChange = event => {
-    this.setState({ comment: event.target.value });
+  handleChange = ({ target: { value } }) => {
+    this.setState({ comment: value });
   };
 
   handleSubmit = event => {

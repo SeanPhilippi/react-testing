@@ -1,0 +1,8 @@
+{
+  "globals": {
+      "mount": "writable",
+      "shallow": "writable",
+      "render": "writable"
+    },
+    "parser": "babel-eslint"
+}
