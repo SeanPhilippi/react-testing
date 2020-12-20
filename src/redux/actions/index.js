@@ -17,9 +17,8 @@ export const fetchComments = () => {
     };
 };
 
-export const changeAuth = isLoggedIn => {
+export const changeAuth = () => {
   return {
     type: CHANGE_AUTH,
-    payload: isLoggedIn,
   };
 }

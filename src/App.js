@@ -1,40 +1,37 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import CommentBox from 'components/CommentBox';
 import CommentList from 'components/CommentList';
 import './App.css';
+import * as actions from 'redux/actions';
 
 class App extends PureComponent {
-  renderButton = () => {
-    if (this.props.auth) {
-      return (
-        <button>
-          Sign Out
-        </button>
-      )
-    } else {
-      return (
-        <button>
-          Sign In
-        </button>
-      )
-    }
-  }
-
-  render() {
+  renderHeader = () => {
     return (
       <ul>
         <li>
-          <Link to='/' component={CommentBox}>Home</Link>
+          <Link to='/'>Home</Link>
         </li>
         <li>
-          <Link to='/post' component={CommentList}>Post a Comment</Link>
+          <Link to='/post'>Post A Comment</Link>
         </li>
-        <div>
-          {this.renderButton()}
-        </div>
+        <li>
+          <button onClick={this.props.changeAuth}>
+            {this.props.auth ? 'Sign Out' : 'Sign In'}
+          </button>
+        </li>
       </ul>
+    )
+  };
+
+  render() {
+    return (
+      <div>
+        {this.renderHeader()}
+        <Route path='/post' component={CommentBox} />
+        <Route path='/' component={CommentList} />
+      </div>
     );
   }
 };
@@ -45,4 +42,4 @@ const mapStateToProps = state => {
   }
 };
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, actions)(App);

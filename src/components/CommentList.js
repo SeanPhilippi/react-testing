@@ -20,9 +20,9 @@ class CommentList extends PureComponent {
   }
 }
 
-// const mapStateToProps = state => ({
-//   comments: state.comments,
-// });
+const mapStateToProps = state => ({
+  comments: state.comments,
+});
 
-export default connect(state => ({ comments: state.comments }))(CommentList);
+export default connect(mapStateToProps)(CommentList);
 
