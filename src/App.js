@@ -31,9 +31,9 @@ class App extends PureComponent {
         <li>
           <Link to='/post' component={CommentList}>Post a Comment</Link>
         </li>
-        <li>
+        <div>
           {this.renderButton()}
-        </li>
+        </div>
       </ul>
     );
   }

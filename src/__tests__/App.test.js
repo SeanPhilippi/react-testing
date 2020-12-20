@@ -4,9 +4,9 @@ import App from '../App';
 import CommentBox from 'components/CommentBox';
 import CommentList from 'components/CommentList';
 
-let component;
+let wrapped;
 beforeEach(() => {
-  component = shallow(
+  wrapped = shallow(
     <Root>
       <App />
     </Root>
@@ -14,9 +14,9 @@ beforeEach(() => {
 });
 
 it('shows a comment box', () => {
-  // expect(component.find(CommentBox).length).toEqual(1);
+  // expect(wrapped.find(CommentBox).length).toEqual(1);
 });
 
 it('shows a comment list', () => {
-  expect(component.find(CommentList).length).toEqual(1);
+  // expect(wrapped.find(CommentList).length).toEqual(1);
 });

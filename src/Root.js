@@ -9,7 +9,8 @@ export default ({ children, initialState = {} }) => {
   const store = createStore(
     reducers,
     initialState,
-    composeWithDevTools(applyMiddleware(reduxPromise))
+    // composeWithDevTools(applyMiddleware(reduxPromise))
+    applyMiddleware(reduxPromise)
   );
   return <Provider store={store}>{children}</Provider>;
 };
